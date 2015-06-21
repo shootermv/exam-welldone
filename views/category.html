@@ -1,0 +1,32 @@
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+
+  <div id="form-container">
+  
+      <div class="page-header text-center"> 
+          <h2>My Locations</h2>
+          
+          <!-- the links to our nested states using relative paths -->
+          <!-- add the active class if the state matches our ui-sref -->
+
+          <div id="status-buttons" class="text-center">
+              <a                  ui-sref-active="active" ui-sref=".new"><span><i class="fa fa-plus"></i></span> Add</a>
+              <a                  ui-sref-active="active" ui-sref=".list"><span><i class="fa fa-reorder"></i></span> List</a>
+              <a ng-if="selected" ui-sref-active="active" ui-sref=".edit({id:selected.id})" ng-click="selectAndGo($event)"><span><i class="fa fa-pencil"></i></span> Edit</a>
+              <a ng-if="selected" ui-sref-active="active" ui-sref=".delete"><span><i class="fa fa-trash"></i></span> Delete</a>
+          </div>
+      </div>
+      <growl-notification ttl="500" ng-if="showSuccess">
+          <div class="alert alert-success" role="alert">category saved</div>
+      </growl-notification>
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form id="signup-form" name="categoryForm" ng-submit="saveCategory()" novalidate="novalidate">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" ui-view></div>
+      </form>
+  
+  </div>
+
+
+</div>
+</div>

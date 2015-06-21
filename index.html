@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="locationsApp">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- CSS -->
+    <link  rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.dark.min.css" />
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-chosen-localytics/chosen.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-chosen-localytics/chosen-spinner.css" />
+    <link rel="stylesheet" href="style.css" />
+        <title>my-locations</title>
+    </head>
+    <body>
+        <div class="app">
+			<growl-notifications></growl-notifications>
+			<!-- views will be injected here -->
+			<div class="container">
+			  <div ui-view=""></div> 
+			</div>
+			<footer class="row" id="bottom-memu">
+			  <div class="col-sm-8 col-sm-offset-2">
+				<div class="jumbotron text-muted text-center">
+
+				  <a ui-sref="category.list" ng-class="{'active':$root.$state.current.name.indexOf('category')>-1}">
+					<span class="fa fa-folder"></span>
+		 categories</a>
+				   <a ui-sref="location.list" ng-class="{'active':$root.$state.current.name.indexOf('location')>-1}">
+					<span class="fa fa-map-marker"></span>
+		 locations</a>
+				</div>
+			  </div>
+            </footer>
+        </div>
+    <!-- JS -->
+    <!-- load angular, nganimate, and ui-router -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script>var cordova={}</script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular-chosen-localytics/chosen.jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+    <script src="bower_components/angular-growl-notifications/dist/angular-growl-notifications.js"></script>
+	<script src="bower_components/angular-chosen-localytics/chosen.js"></script>
+        <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="app.js"></script>
+    <script src="services/deviceReadySvc.js"></script>
+    <script src="controllers/categoryCtrl.js"></script>
+    <script src="controllers/locationCtrl.js"></script>
+    <script src="services/categoriesSvc.js"></script>
+    <script src="services/locationsSvc.js"></script>
+    <script src="services/utilsSvc.js"></script>
+    <script src="services/getCurrentPositionSvc.js"></script>
+    <script src="services/openEmailSvc.js"></script>
+    </body>
+</html>

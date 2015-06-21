@@ -1,0 +1,60 @@
+<div class="text-center" ng-if="categories.length==0">
+    <label>You canot add locations if there is no categories</label>
+    <div class="col-xs-6 col-xs-offset-3">
+        <a ui-sref="category.new" class="btn btn-block btn-info">
+            Add Category <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+    </div>
+</div>
+<div ng-if="categories.length">
+	<div class="form-group" ng-class="{'has-error':locationForm.name.$invalid}">
+		<label for="name">Name</label>
+		<input type="text" class="form-control" name="name" id="name" ng-model="location.name" required>
+		<span class="help-block has-error error-msg" ng-show="locationForm.name.$invalid && locationForm.$submitted">This field is required</span>
+	</div>
+	<!--Address-->
+	<div class="form-group" ng-class="{'has-error':locationForm.address.$invalid}">
+		<label for="address">Address</label>
+		<input type="text" class="form-control" name="address" id="address" ng-model="location.address" required>
+		<span class="help-block has-error error-msg" ng-show="locationForm.address.$invalid && locationForm.$submitted">This field is required</span>
+	</div>
+
+	<!--Coordinates-->
+	<label for="name">Coordinates</label>	
+	<div class="row">
+	  <div class="col-xs-6">
+    	 <div class="form-group" ng-class="{'has-error':locationForm.coorx.$invalid}"> 
+		  <label for="coorx">X: </label>
+		  <input type="number" class="form-control" name="coorx" id="coorx" required ng-model="location.coordinates.X"> 
+      		<span class="help-block has-error error-msg" ng-show="locationForm.coorx.$invalid && locationForm.$submitted">This field is required</span>    		  
+		 </div>
+	  </div>
+	  <div class="col-xs-6">
+	     <div class="form-group" ng-class="{'has-error':locationForm.coory.$invalid}"> 
+   	        <label for="coory">Y: </label>
+			<input type="number" class="form-control" name="coory" id="coory" required ng-model="location.coordinates.Y"> 
+			<span class="help-block has-error error-msg" ng-show="locationForm.coory.$invalid && locationForm.$submitted">This field is required</span>
+	     </div>
+	  </div>
+	</div>
+
+	<!--Category-->
+	<div class="form-group" ng-class="{'has-error':locationForm.categories.$invalid}" >
+	 <label for="categories">Categories</label>
+	 <select multiple class="form-control" required
+			chosen
+			ng-model="location.categories" name="categories" id="categories"
+			ng-options="s as s.name for s in categories track by s.id">
+	       <option value=""></option>
+	  </select>
+	  <span class="help-block has-error error-msg" ng-show="locationForm.categories.$invalid && locationForm.$submitted">This field is required</span>
+	</div>
+
+	<div class="form-group row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<button type="submit" class="btn btn-block btn-info">
+		Save <span class="glyphicon glyphicon-circle-arrow-right"></span>
+		</button>
+	</div>
+	</div>
+</div>

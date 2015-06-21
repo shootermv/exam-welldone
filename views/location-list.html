@@ -1,0 +1,39 @@
+
+
+<div class="form-group"  ng-if="locations.length">
+
+    <a class="btn btn-primary pull-right" href ng-click="exportLocations()">export</a>
+    <label>Locations:</label>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>categories</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="location in locations" ng-click="select(location)">
+            <td> <span class="fa" ng-class="{'fa-check-square':selected.id===location.id, 'fa-square-o':selected.id!==location.id}"></span></td>
+            <td>{{location.name}}</td>
+            <td> <div ng-repeat="cat in location.categories">{{cat.name}}</div> </td>
+        </tr>
+        </tbody>
+    </table>
+<!--    <div class="radio" ng-repeat="location in locations" ng-click="select(location)">
+        <label>
+           <span class="fa" ng-class="{'fa-check-square':selected.id===location.id, 'fa-square-o':selected.id!==location.id}"></span>
+           {{location.name}}
+        </label>
+    </div>-->
+</div>
+
+<div class="form-group row"  ng-if="!locations.length">
+    <label>Whant to add some location?</label>
+    <div class="col-xs-6 col-xs-offset-3">
+        <a ui-sref="location.new" class="btn btn-block btn-info">
+        Add Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+    </div>
+</div>

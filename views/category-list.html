@@ -1,0 +1,18 @@
+<div class="form-group"  ng-if="categories.length">
+    <label>Categories:</label>
+    <div class="radio" ng-repeat="category in categories" ng-click="select(category)">
+        <label>
+            <span class="fa" ng-class="{'fa-check-square':selected.id===category.id, 'fa-square-o':selected.id!==category.id}"></span>
+            {{category.name}}
+        </label>
+    </div>
+</div>
+
+<div class="form-group row"  ng-if="!categories.length">
+    <label>Whant to add some category?</label>
+    <div class="col-xs-6 col-xs-offset-3">
+        <a ui-sref="category.new" class="btn btn-block btn-info">
+            Add Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+    </div>
+</div>
